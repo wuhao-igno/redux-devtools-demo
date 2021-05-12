@@ -7,16 +7,24 @@
     "serve": "vite preview",
     "commit": "./node_modules/.bin/git-cz",
     "release": "standard-version",
-    "lint": "npx eslint src --fix"
+    "lint": "eslint src --fix",
+    "test": "jest --coverage src/**/*"
   },
   "dependencies": {
+    "ramda": "^0.27.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.0",
+    "redux-devtools-extension": "^2.13.9",
+    "reinspect": "^1.1.0",
     "styled-components": "^5.3.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.13.15",
+    "@types/jest": "^26.0.23",
     "@types/node": "^15.0.2",
+    "@types/ramda": "^0.27.40",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/styled-components": "^5.1.9",
@@ -32,10 +40,12 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "jest": "^26.6.3",
     "postcss": "^8.2.14",
     "prettier": "^2.2.1",
     "standard-version": "^9.3.0",
     "tailwindcss": "^2.1.2",
+    "ts-jest": "^26.5.6",
     "typescript": "^4.1.2",
     "vite": "^2.2.3"
   },

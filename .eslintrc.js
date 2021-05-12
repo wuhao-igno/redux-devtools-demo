@@ -45,7 +45,7 @@ module.exports = {
       }
     ],
     "@typescript-eslint/no-explicit-any": ["warn", { "ignoreRestArgs": true }],
-    'operator-linebreak': ['error', 'after'],
+    'operator-linebreak': 0, // 由 prettier 接管
   },
   parserOptions: {
     project: './tsconfig.json',
