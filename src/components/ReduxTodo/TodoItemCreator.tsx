@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { connect, DispatchProp } from 'react-redux';
 import Button from '../common/Button';
 import Input from '../common/Input';
-import { addItem } from './state/actions';
+import { addItem, doneAll } from './state/actions';
 
 const TodoItemCreator = (props: DispatchProp) => {
   const { dispatch } = props;
@@ -14,6 +14,11 @@ const TodoItemCreator = (props: DispatchProp) => {
 
   const addTodoItem = useCallback(() => {
     dispatch(addItem(inputValue));
+    if (inputValue.toLowerCase() === 'all done') {
+      setTimeout(() => {
+        dispatch(doneAll());
+      }, 2000);
+    }
     setInputValue('');
   }, [dispatch, inputValue, setInputValue]);
 

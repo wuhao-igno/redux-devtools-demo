@@ -12,7 +12,7 @@ function App() {
           <ReduxTodoList />
         </div>
         <div className="flex justify-center items-center">
-          <ComplexComponent showMore={false} />
+          <ComplexComponent />
         </div>
         <div className="flex justify-center items-center">
           <ReinspectComponent />

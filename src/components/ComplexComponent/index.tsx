@@ -1,26 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import Card from '../common/Card';
-import Input from '../common/Input';
+import ShowMore from './ShowMore';
 
-const ComplexComponent: React.FC<{ showMore: boolean }> = ({ showMore }) => {
+const ComplexComponent: React.FC = () => {
+  const [showMore, setShowMore] = useState(false);
   const [error, setError] = useState('');
-  useEffect(() => {
-    if (Math.random() > 0.95) {
-      setError('出现错误');
+  const [list, setList] = useState<string[]>([]);
+
+  const handleShowMore = useCallback(() => {
+    if (list.length === 0) {
+      setShowMore(true);
     }
-  }, []);
+    if (list.length > 7) {
+      alert('无更多内容');
+    } else {
+      setList(list.concat([`${list.length + 1}: random content`]));
+    }
+  }, [list]);
+
   return (
     <Card>
       <div className="m-2">默认显示的内容</div>
-      {showMore ? (
-        <div className="m-2 p-1">
-          <div className="m-1">由 Props 控制的隐藏内容</div>
-          <div className="m-1">
-            <Input />
-            {error ? <div className="text-xs text-red-600 font-light">{error}</div> : null}
-          </div>
-        </div>
-      ) : null}
+      {error ? <div className="m-2 text-red-600">存在错误: {error}</div> : null}
+      <ShowMore list={list} onShowMore={handleShowMore} showMore={showMore} setError={setError} />
     </Card>
   );
 };

@@ -36,6 +36,11 @@ const todos = (state: Todo[] = [], action: Action): Todo[] => {
         },
         state,
       );
+    case 'DONE_ALL':
+      return state.map((todo) => ({
+        ...todo,
+        isComplete: COMPLETE_STATUS.COMPLETED,
+      }));
     default:
       return state;
   }

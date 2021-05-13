@@ -25,6 +25,9 @@ export type Action =
   | {
       type: 'SET_FILTER';
       filter: string;
+    }
+  | {
+      type: 'DONE_ALL';
     };
 
 export const addItem = (text: string) => ({
@@ -54,4 +57,8 @@ export const editItem = (item: Todo, index: number, text: string) => ({
 export const setFilter = (filter: string) => ({
   type: 'SET_FILTER' as const,
   filter,
+});
+
+export const doneAll = () => ({
+  type: 'DONE_ALL' as const,
 });

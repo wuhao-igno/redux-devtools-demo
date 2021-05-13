@@ -7,6 +7,9 @@ import { State } from './state/types';
 
 const TodoList = (props: Props) => {
   const { todos, ...passThroughProps } = props;
+  if (todos.length > 4 && todos.length < 7) {
+    return null;
+  }
   return (
     <>
       {todos.map((item, index) => (
